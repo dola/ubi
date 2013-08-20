@@ -9,6 +9,8 @@
 \usepackage{amsopn}
 \usepackage{amsmath}
 
+\usepackage{hyperref}
+
 \usepackage{graphicx}
 \graphicspath{{./resources/}}
 
@@ -442,12 +444,90 @@ clock rate, i. e. temperature) and performance analysis to detect a potential
 attack. If an attack is detected, critical parts of the EEPROM can be
 overwritten.
 
-\section{Wireless short-distance communication}
+\section[Wireless short-distance communication]{Wireless short-distance
+communication%
+\footnote{For more detailed information about wireless network basics and the
+Bluetooth protocol please consult~\cite{acn-summary}.}
+}
+
+\subsection{Comparison to fixed Networks}
+Wireless networks typically have way higher loss rates due to interference,
+fading etc. and are restricted to regulations of resources (frequency bands).
+They typically achieve lower transmission rates and are less secure due to the
+publicly shared transmission medium. However they have great mobility support
+and need less infrastructure.
+
+Major challenges of mobility include varying transmission quality, disconnection
+management, handover, location transparency, service discovery,
+authentication and security.
+
+\subsection{Multiplexing}
+There are four basic multiplexing methods that are usually combined to achieve a
+real-world compatible solution:
+\begin{itemize}
+    \item Space Division Multiplexing Access
+    \item Frequency Division Multiplexing Access
+    \item Time Division Multiplexing Access
+    \item Code Division Multiplexing Access
+\end{itemize}
+
+In FDMA two versions are commonly distinguished: Fast and Slow Hopping. While in
+{\bf Fast Hopping} several frequencies per bit are used, {\bf Slow Hopping}
+sends several bits per frequency.
+
+An example of the combination of TDMA and FDMA is the widely used GSM protocol
+for mobile phones.
 
 \subsection{Bluetooth}
+Bluetooth 802.15.1 is for short-range (typically up to $10$m) medium bandwidth
+($< 1$ Mb/s) data transfers in spontaneously created small networks. It operates
+in the $2.4$ GHz frequency band on $79$ channels with $1600$ frequency hops per
+second ($625 \mu$s intervals).
+
+Two basic modes (baseband link types) exist: One for synchronous, timing
+critical transmission like voice and one for asynchronous transmissions like data.
+
+Bluetooth devices can form a so called piconet of up to 8 devices with 1 master
+that determines clock and frequency hopping pattern (based on its device ID).
+All communication always goes over the master, there is no possibility for
+direct slave-to-slave communication. Because a slave can participate in multiple
+piconets at once (but at most in one actively at any time) it is possible to
+form scatternets of multiple overlapping piconets where slaves in multiple
+piconets serve as bridges.
+
+The further development of the Bluetooth standards (currently version 3.0) tries
+to achieve higher data rates with lower power consumption for a cheaper price.
+Since Bluetooth 2.1 (2007) pairing between devices became much simpler and with
+Bluetooth 3.0 (2009) WiFi can be used on the physical layer to enable for much
+higher transfer rates.
+
+\subsection{802.15.4}
+For even smaller, cheaper and less energy consuming communication devices like
+smart watches, remote controls or sensor networks, IEEE 802.15.4 provides a
+suitable solution. It is designed to allow building multi-month (or even year)
+battery life personal area networks with support for latency-critical
+applications. Nodes can operate in a master-slave fashion or peer-to-peer in
+mesh networks and transfer data with up to $250$ kbit/s. The standard only
+defines the physical and MAC layer.
+
+
+{\bf ZigBee} is an upper layer protocol based in IEEE 802.15.4 that defines the
+network and application layer and implements mesh topologies using multi-hop and
+ad hoc on-demand distance vector
+routing.%
+\footnote{\href{http://en.wikipedia.org/wiki/Distance-vector_routing_protocol}
+{http://en.wikipedia.org/wiki/Distance-vector\_routing\_protocol}}
+
+
+{\bf 6LoWPAN} (IPv6 over Low-Power Wireless Personal Area Networks) sends IPv6
+packets over 802.15.4 using aditional header compression and packet
+fragmentation. It supports both mesh-under (link layer) and route-over (IP
+layer) routing.
 
 \subsection{Near Field Communication (NFC)}
 
+\bibliographystyle{plain}
+\bibliography{references}
 
 \clearpage
 \end{multicols}
