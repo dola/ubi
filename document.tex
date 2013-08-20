@@ -524,7 +524,112 @@ packets over 802.15.4 using aditional header compression and packet
 fragmentation. It supports both mesh-under (link layer) and route-over (IP
 layer) routing.
 
-\subsection{Near Field Communication (NFC)}
+
+
+\section{Location}
+Geographic location is of interest for mobile devices, people and everyday
+objects. Location Information can be interesting for positioning, navigating,
+logistics and location-based (context aware) services. Some examples include
+emergency services (locate assistance and caller), traffic information,
+navigation, mapping, weather information.
+
+Commonly the {\bf geometric} and the {\bf symbolic Location Model} are
+distinguished. While the first is based on a reference coordinate system, only
+the latter is human-friendly because it uses special topology and is typically
+hierarchically organized (e.g. postal address). Reverse mapping from the
+symbolic model to the geometric is however not always unique due to common
+names.
+
+\subsection{Location Technologies}
+There exist various different location technologies each approaching different
+issues like cost, accuracy, scalability, indoor/outdoor, private/public or
+active/passive.
+
+Important terms for location technologies are Reference Value, Estimate,
+Resolution, Precision/Variance, Location Value, Probabiliby Density and
+Accuracy/Error.
+
+While in relative positioning only change is measured (e.g. velocity,
+acceleration or height), absolute positioning can be more complex:
+\begin{description}
+\item[Triangulation] measures angles to reference point \ \\
+    Angle of Arrival (AOA) used in aviation
+\item[Trilateration] measures distances to reference point \ \\
+    Time of Arrival (TOA) as delay between sending and receiving either one-way
+    (synchronization needed, e.g. in GPS) or round-trip (e.g. Radar).
+\item[Multilateration] compares relative distances \ \\
+    Time Difference of Arrival (TDOA) e.g. used to locate mobile phone from
+    multiple base stations with known positions
+\end{description}
+
+In GSM multiple of these techniques can be used with different accuracy. While
+the Cell of Origin (COO, Cell identity) has relatively low accuracy, TOA ($~
+500$ m and TDOA $~ 150$m) are relatively accurate. Other methods are AOA and
+Signal strength comparison with cell shape database (fingerprinting). The
+combination of multiple methods can give even better results.
+
+\subsection{Global Navigation Satellite Systems (GNSS)}
+GNSS include the famous {\bf Global Positioning System} (GPS) but also its
+Russian version {\it GLONASS} and the Chinese brother {\it COMPASS}. The
+European Union is currently building its equivalent {\it Galileo System}.
+
+GNSS use Trilateration in three dimensional space with $3$ satellites plus a
+fourth satellite for clock synchronization in TOA.
+
+To improve accuracy over the typical $5 - 15$m, {\bf Differential GPS} uses
+fixed reference stations to cancel out some error sources. It is also possible
+to use pseudo-satellites on ground (so called ``Pseudolites'') to improve
+accuracy in difficult terrain or indoors.
+
+Wireless Assisted Satellite Navigation {\bf A-GSP} uses additional data through
+the mobile phone network. These include but are not limited to cellular network
+properties, database of WiFi access points, time synchronization and list of
+visible satellites and their position. (where the latter mainly increases
+locating speed)
+
+\subsection{Indoor Positioning Systems}
+For indoor positioning a high accuracy can only be achieved by using dedicated
+infrastructure like:
+
+\begin{description}
+\item[Infrared-based Systems] short range, room-level, limited by line of sight
+\item[Radio Frequency bacons] cell-level granularity
+\item[Ultra Sound] TOA, TDOA (synchronize via RF channel) with accuracy of a few
+cm but very poor scale
+\item[Ultra Wide Band] Reference stations in corner, up to $~20$cm accuracy
+\item[Magnetic, Optical and others] for specialized applications
+\end{description}
+
+Nowadays there is often no longer a need for a new dedicated infrastructure
+because we can used already existing infrastructure like WLAN base stations or
+phone beacons (DECT). Additionally there is only very small communication
+overhead when using fingerprinting with existing infrastructure.
+
+\subsection{Trends}
+As always: smaller, cheaper and more accurate...
+
+\section{Outlook}
+\subsection{Energy}
+The capacity of batteries is often measured in {\bf energy per gram} where top
+notch Lithium-Ion batteries come at about $720$ J/g. The efficiency of battery
+technology is improving only slowly over time while other hardware continuously
+uses more energy. (However the number of instruction per energy is
+luckily decreasing due to better power management)
+
+
+\subsection{Augmented Reality}
+Huge potential with first products appearing on market like Google Glass and
+various smart phone apps. Augmenting the user's view of the environment by
+extending his senses and make him more secure and smart. (Human Empowering)
+
+\subsection{Economic and Social Impact}
+Ubiquitous Computing can lead to higher efficiency, more convenience,
+increased safety and opens many new business opportunities. However there are a
+lot of critical voices about social and economic value, general user acceptance
+and privacy. Smart things may behave unexpectedly, humans may no longer have
+full control and self-determination. Over all not only the smart objects but
+also mankind increases their dependability on a correct infrastructure and each
+other.
 
 \bibliographystyle{plain}
 \bibliography{references}
